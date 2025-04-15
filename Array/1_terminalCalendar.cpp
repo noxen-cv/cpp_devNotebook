@@ -59,7 +59,7 @@ namespace Calendar {
         header();
         
         for (int i=0; i < mStart; i++) {
-            cout << setw(4) << " D";
+            cout << setw(4) << " ";
         }
         for (int i=1; i <= mEnd; i++) {
             cout << setw(4) << i;

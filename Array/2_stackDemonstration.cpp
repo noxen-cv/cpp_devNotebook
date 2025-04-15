@@ -26,10 +26,11 @@ void push (int stack[], int a,int n) {
         cout << "=========================" << endl;
         return;
     }
-    else
+    else {
         top = top+1;
-
-    stack[ top ] = a;
+        stack[ top ] = a;
+    }    
+    
 }
 
 bool isEmpty(){
@@ -98,9 +99,8 @@ int main() {
             
             default: 
                 cout << "Invalid Input... Please try again!\n" << endl;
-                break;
-
-        }
+                break;                    
+                }
     } while(true);
     return 0;
 }
