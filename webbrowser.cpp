@@ -5,16 +5,14 @@ using namespace std;
 
 class webbrowser {
 private: 
-    const int MAX_INPUT = 100;
+    static const int MAX_INPUT=100;
     int current = -1;
-    string history[100];
+    string history[MAX_INPUT];
 public:
-
     void header(){
         cout << "Web Browser Activities" << endl;
         cout << "-----------------------" << endl;
     }
-
     void visitPage(string url){
         if (current == MAX_INPUT){
             cout << "Stack Overflow\n Maximum Visit Reached!";
@@ -26,14 +24,13 @@ public:
         }
     }   
     bool isEmpty(){
-        if(current == 0){
+        if(current == -1){
             return true;
         }
         else{
             return false;
         }
     }
-
     void previousPage(){
         if (isEmpty()) {
             cout << "Stack Underflow\nNo Pages Left" << endl;
@@ -73,7 +70,7 @@ int main() {
             cout << "Url: ";
             string search;
             cin >> search;
-            string url = "https://" + search + ".com";
+            string url = "https://" + search + ".com";     
             wb.visitPage(url);
         }
         else if (choice == 2){
@@ -93,11 +90,6 @@ int main() {
             cout << "\nInvalid Input, Please Try Again!\n" << endl;
         }
 
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore();
-            continue;
-        }
     }
     return 0;
 }
