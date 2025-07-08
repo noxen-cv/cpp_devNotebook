@@ -32,7 +32,6 @@ int main() {
 
     int ans;
 
-
     cout << "First Term: ";
     cin >> A;
 
@@ -50,3 +49,7 @@ int main() {
 
 
 }
+
+        /* FUTURE ENHANCEMENTS:
+        > OOP 
+        */
