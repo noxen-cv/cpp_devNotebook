@@ -1,6 +1,6 @@
 # C++ Development Notebook: Data Structures and Algorithms
 
-[![Development Status](https://img.shields.io/badge/Status-In%20Development-yellow.svg)](https://github.com/your-repo-link)
+[![Development Status](https://img.shields.io/badge/Status-In%20Development-yellow.svg)](https://github.com/noxen-cv/cpp_devNotebook.git)
 [![Language](https://img.shields.io/badge/Language-C%2B%2B-blue.svg)](https://isocpp.org/)
 [![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](CONTRIBUTING.md)
 
@@ -35,18 +35,6 @@ Algorithm practice and problem-solving exercises organized by concepts:
 - **Loop Implementations**
 - **Mathematical Operations and Progressions**
 
-### 🚧 Planned Implementations
-- **Queues and Priority Queues**
-- **Hash Tables and Hash Maps**
-- **Trees (Binary Trees, BST, AVL, Red-Black Trees)**
-- **Graphs (Adjacency List & Matrix representations)**
-- **Sorting Algorithms (Bubble, Merge, Quick, Heap, Radix)**
-- **Searching Algorithms (Binary, Linear, Ternary)**
-- **Recursion and Backtracking**
-- **Dynamic Programming**
-- **Graph Algorithms (DFS, BFS, Dijkstra, Floyd-Warshall)**
-- **Advanced Data Structures (Segment Trees, Tries, etc.)**
-
 ## Technical Specifications
 
 - **Programming Language**: C++
@@ -58,41 +46,17 @@ Algorithm practice and problem-solving exercises organized by concepts:
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/noxen-cv/cpp_devNotebook.git
    cd cpp_devNotebook
    ```
 
 2. Navigate to specific folders to explore implementations
 3. Compile and run individual C++ files as needed
 
-## Contributing
-
-We welcome contributions from the community! Whether you're fixing bugs, improving existing implementations, adding new algorithms, or enhancing documentation, your contributions are valuable.
-
-### How to Contribute:
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/algorithm-name`)
-3. Commit your changes (`git commit -m 'Add new sorting algorithm'`)
-4. Push to the branch (`git push origin feature/algorithm-name`)
-5. Open a Pull Request
-
-### Contribution Guidelines:
-- Follow consistent coding style and naming conventions
-- Include comments and documentation for complex algorithms
-- Add test cases where applicable
-- Ensure code compiles without warnings
 
 ## Development Status
 
 This repository is actively maintained and continuously expanded. Check the commit history for recent updates and planned features in the Issues section.
-
-## Educational Purpose
-
-This notebook is designed for:
-- **Students** learning data structures and algorithms
-- **Developers** reviewing fundamental CS concepts
-- **Educators** seeking practical implementation examples
-- **Anyone** interested in algorithmic problem-solving
 
 ## License
 
