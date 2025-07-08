@@ -65,6 +65,15 @@ Algorithm practice and problem-solving exercises organized by concepts:
 2. Navigate to specific folders to explore implementations
 3. Compile and run individual C++ files as needed
 
+## Documentation
+
+For comprehensive documentation and implementation details, view our documentation folder:
+
+📚 **[Documentation Hub](docs/)** - Complete project documentation  
+🤖 **[AI Implementations](docs/ai-implementations.md)** - AI-generated components and enhancements  
+
+*Additional documentation files will be added as the project grows.*
+
 ## Contributing
 
 We welcome contributions from the community! Whether you're fixing bugs, improving existing implementations, adding new algorithms, or enhancing documentation, your contributions are valuable.
