@@ -18,7 +18,7 @@ jobs:
     
     - name: Display build environment
       run: |
-        echo "🔧 Build Environment Information:"
+        echo "Build Environment Information:"
         echo "Compiler: $(g++ --version | head -n1)"
         echo "Make: $(make --version | head -n1)"
         echo "Platform: $(uname -a)"
@@ -26,17 +26,17 @@ jobs:
     
     - name: Build all projects
       run: |
-        echo "🚀 Building all C++ projects..."
+        echo "Building all C++ projects..."
         make all
     
     - name: Run tests
       run: |
-        echo "🧪 Running test suite..."
+        echo " Running test suite..."
         make test
     
     - name: Verify build structure
       run: |
-        echo "📁 Checking build outputs..."
+        echo "Checking build outputs..."
         echo "Build directory structure:"
         ls -la bin/ || echo "❌ No bin directory found"
         echo ""
