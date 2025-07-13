@@ -1,5 +1,27 @@
 #include <iostream>
+
+
 using namespace std;
+
+class binaryConversion {
+    public:
+        void  binaryDecimal(int n) {
+            string binary = "";
+            
+                if (n == 0) {
+                    cout << "0";
+            }
+                
+                while( n>0) {
+                    int rem = n % 2;
+                    binary = to_string(rem) + binary;
+                    n /= 2;
+            }
+            
+            cout << binary;
+
+        }
+};
 
 int main() {
     // code here
