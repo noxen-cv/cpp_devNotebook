@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <string>
 
 using namespace std;
 
@@ -17,25 +17,34 @@ class binaryConversion {
                     binary = to_string(rem) + binary;
                     n /= 2;
             }
-            
             cout << binary;
-
         }
+        
+        void decimalBinary(int n) {
+            int val = 0, base = 1;
+            cin >> n;
+
+                while (n > 0 ){
+                    int lastDigit = n % 10;
+                    val += lastDigit * base;
+                    base *= 2;
+                    n /= 10;
+                }
+                
+            cout << val;
+    }
 };
 
 int main() {
     // code here
-    int n, val = 0, base = 1;
+    int n;
+    binaryConversion bC;
+
     cin >> n;
 
-    while (n > 0 ){
-        int lastDigit = n % 10;
-        val += lastDigit * base;
-        base *= 2;
-        n /= 10;
-    }
-    
-    cout << val;
+    bC.binaryDecimal(n);
+    cout << endl;
+
 
     return 0;
 }
