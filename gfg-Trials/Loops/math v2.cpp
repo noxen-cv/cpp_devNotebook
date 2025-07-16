@@ -72,10 +72,19 @@ class mathv2 {
 
 };
 
-int main () {
+int main () { 
     int n;
 
+    mathv2 obj;
 
+    cout << "Enter the number of terms for Fibonacci series: ";
+    cin >> n;
+    obj.fibonacci(n);
+    cout << endl;
+    cout << "Enter the Nth term for Fibonacci series: ";
+    cin >> n;
+    obj.fibonacciNth(n);
+    cout << endl;
 
     
 }
