@@ -65,7 +65,7 @@ Output: *
 i = 2 → j from 1 to 5:
     j=1 → j <= 2 → * 
     j=2 → j <= 2 → * 
-    j=3 → j > 2  →   
+    j=3 → j > 2  →     daw
     j=4 → j > 2  →   
     j=5 → j > 2  →   
 
