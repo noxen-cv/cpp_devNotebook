@@ -70,9 +70,45 @@ class math {
         cout << (a * b) / gcdEuclid(a,b) << endl;
     }
    
+
+    void primeNumber(int n) {  
+        n++;
+            while (true)
+                {
+                    int i;
+                    for (i = 2; i < n; i++)
+                    {
+                        if (n % i == 0)
+                            break;
+                    }
+                    if (i == n)
+                    {
+                        cout << n << endl;
+                        break;
+                    }
+                    n++;
+                }
+        }
 };
 
+
+
 int main() {
+    preMath p;
+    math m;
+
+    
+    int n, m, choice;
+    cin >> choice;
+    p.countDigits(12345);
+    cout << endl;
+
+    m.printDivisors(12);
+    m.factorial(5);
+    m.gcd(12, 15);
+    cout << m.gcdEuclid(12, 15) << endl;
+    m.lcd(12, 15);
+    m.primeNumber(7);
 
     return 0;
 }
