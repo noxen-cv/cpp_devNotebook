@@ -32,4 +32,7 @@ Analysis of the existing `.github/workflows/c-cpp.yml` revealed compatibility is
 
 =======
 
+## mathv2.cpp
+
+`gfg-Trials/Loops/mathv2.cpp`
 
