@@ -15,7 +15,8 @@ void reverseTraversal(int* n, int size) {
     }
 }
 
-int countNumIndices(int* n, int size, int selected) {
+
+int countNumIndices(int* n, int size, int selected) { // Count no. of specific indices present in the array
     int count = 0;
     for(int i = 0; i < size; i++){
         if (n[i] == selected) {
@@ -23,6 +24,15 @@ int countNumIndices(int* n, int size, int selected) {
         }
     }
     return count;
+}
+
+int searchIndexLocation(int* n, int size, int selected) { // Search for the index of a specific element in the array
+    for(int i = 0; i < size; i++) {
+        if(n[i] == selected) {
+            return i;      // return index i, if found.
+        }
+    }
+    return -1; // return -1 if not found
 }
 
 
