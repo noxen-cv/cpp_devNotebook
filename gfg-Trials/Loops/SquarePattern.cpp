@@ -26,7 +26,16 @@ void Square(int n) {
 int main() {
     // code here
     int n;
+
+    cout << "Enter the size of the square: ";
     cin >> n;
+
+    
+    cout << "Square Pattern:\n";
+    Square(n);
+
+    cout << endl;
+    outlineSquare(n);
     
     return 0;
 }

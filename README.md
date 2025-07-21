@@ -54,6 +54,8 @@ Algorithm practice and problem-solving exercises organized by concepts:
 3. Compile and run individual C++ files as needed
 
 
+
+
 ## Development Status
 
 This repository is actively maintained and continuously expanded. Check the commit history for recent updates and planned features in the Issues section.

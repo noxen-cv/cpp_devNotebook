@@ -1,13 +1,5 @@
 ### Useful Functions in CPP
 
-sizeof() - used to determine the size of variables, data types, and constants in bytes at compile time.
-        - Determines their datatype bytes.
-
-Typecasting
-    Static Cast         static_cast<int>(x);
-    Dynamic Cast
-    Const Cast
-    Reinterpret Cast
 
 boolalpha / std::boolalpha - printing boolean values into string(true or false)
 
