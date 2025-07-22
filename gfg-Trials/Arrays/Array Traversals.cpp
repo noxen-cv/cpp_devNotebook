@@ -35,6 +35,14 @@ int searchIndexLocation(int* n, int size, int selected) { // Search for the inde
     return -1; // return -1 if not found
 }
 
+bool check_If_Sorted (int* n, int x) {
+    for(int i = 1; i < x; i++) {
+        if(n[i] < n[i - 1])        // Check if current index(arr[i]) is less than previous array (arr[i - 1])
+        return false;              // return false if satisfies
+    }
+    return true;
+}
+
 
 int main(){
 
