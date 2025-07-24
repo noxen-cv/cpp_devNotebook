@@ -17,7 +17,36 @@ class Solution {
         }
         return arr;
     }
+
+
+    int sumOfArray(int* n, int x) {                 // Total Sum inside array indices
+        int ans = 0;                                // Variable to store the sum of elements
+        for (int i = 0; i < x; i++) {
+            ans += n[i];                            // Add each element to ans
+        }
+        return ans;                                 // Return the final sum     
+    }
+
+    double averageOfArray(int* n, int x) {
+        int sum = 0;
+        for(int i = 0; i < x; ++i) {    
+            sum += n[i];                        // Sum of all elements in the array
+        }
+        return (double)sum / x;                 // Return the average by double typecasting sum and dividing by size
+    }
 };
+
+    int posAverage(int* n, int x) {             // Average of positive elements in the array
+        int sum = 0;
+        int count = 0;
+        for(int i = 0; i < x; ++i) {
+            if(n[i] > 0) {                      // Check if the element is positive
+                sum += n[i];                    // Add to sum if positive
+                count++;                        // Increment count of positive elements
+            }
+        }
+        return (count == 0) ? 0 : sum / count;     // Return average or 0 if no positive elements
+    }
 
 int main() {
     int arr[] = {54, 43, 2, 1, 5};

@@ -43,6 +43,39 @@ bool check_If_Sorted (int* n, int x) {
     return true;
 }
 
+int count_distinct(int arr[], int n) {   // Counting how many Distinct Arrays are present
+    int count = 0;                      // Counter for distinct elements
+
+    for (int i = 0; i < n; i++) {
+        bool isDistinct = true;         // Assume the current element is distinct
+
+        // Check the elements to the left of the current element
+        for (int j = i - 1; j >= 0; j--) {
+            if (arr[i] == arr[j]) {     // If a duplicate is found
+                isDistinct = false;
+                break;
+            }
+        }
+
+        if (isDistinct) {
+            count++;                    // Increment the count for distinct elements
+        }
+    }
+
+    return count;                        // Return the total count of distinct elements
+}
+
+int arrayMax(int* n, int size) {        // Function to find the maximum element in an array
+    int max = n[0];                 // Initialize max with the first element of the array
+    for(int i = 1; i < size; ++i) {
+        if (n[i] > max) {           // If the current element is greater than the current max
+            max = n[i];             // Update max to the current element
+        }
+    }
+    return max;
+}
+
+
 
 int main(){
 
