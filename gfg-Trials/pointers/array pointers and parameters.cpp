@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void normalLoops(int* n, int size) {
+void normalLoops(int* n, int size) { // int *n or int n[] both work for arrays
     for(int i = 0; i < size; ++i) {
         cout << n[i] << " ";
     }
