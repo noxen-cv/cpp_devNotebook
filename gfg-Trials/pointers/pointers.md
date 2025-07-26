@@ -47,4 +47,9 @@ Applications of Pointers
 
 Why Are Pointers Important?
         provide flexibility and efficiency in handling memory,
-        
+
+
+## Key Tips for Solving Pointer Questions in C++:
+        1. Master Pointer Basics: Understand how to declare, initialize, dereference pointers, and use the address-of operator (&) to access memory addresses.
+        2. Pointers vs References: Pointers can change the memory they point to, while references are fixed to one memory location.
+        3. Pointer Arithmetic: Learn how to increment, decrement, and navigate arrays or data structures using pointers.
