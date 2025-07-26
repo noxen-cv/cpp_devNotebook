@@ -27,8 +27,8 @@ class Person {
      
 };
 
-void introDisplay(){} // created body at the end of the program
-int selection(int choice) {}
+void introDisplay(); // created body at the end of the program
+int selection(int choice);
 
 int main() {
     Person p;
@@ -70,6 +70,8 @@ int main() {
 
     delete p1;
     delete p2;
+    p1 = nullptr;
+    p2 = nullptr;
     cout << "Memory deallocated." << endl;
 
 }
