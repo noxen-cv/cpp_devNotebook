@@ -34,22 +34,49 @@ int main() {
 
 
      int* ptr1 = (arr+1);   // Pointer to the second element of the array
-     cout << *arr + 10<<endl; // Output 30 
+     cout << *arr + 10 << endl; // Output 30 
      /* *arr is the same as arr[0] which is 20, this means you're dereferencing and accessing 1st element then adds 10 to it,
           thus resulting to 30 + 10 = 30*/
 
 
     
+    int i;
+    int *p = reverse(arr); // Call the reverse function to reverse the array
+    cout << "reversed array: ";
+    for (i = 0; i < 5; i++) {
+        cout << *(p + i) << " "; // Output the reversed array
+    }
+    cout << endl;
+
+    // Demonstrating pointer to an array
+    // Declares and initializes an array of integers
+    int num[5];
+    int *p5 = num;
+    *p5 = 10;
+    p5++;
+    *p5 = 20;
+    p5 = &num[2];
+    *p5 = 30;
+    p5 = num + 3; 
+    *p5 = 40;
+    p5 = num;
+    *(p5 + 4) = 50;
+    cout << "number of arrays: ";
+    for (i = 0; i < 5; i++) {
+        cout << num[i] << " ";          // Output: 10 20 30 40 50
+    }
+
+    cout << endl;
 
     return 0;
 }
 
 int* reversed(int* arr) {
     int i;
-    for (i = 0; i < 2; i++){
-        int temp = *(arr + i); 
-        *(arr + i) = *(arr + 4 - i);
-        *(arr + 4 - i) = temp;
+    for (i = 0; i < 2; i++){        
+        int temp = *(arr + i);      // Store the value of the current element in temp
+        *(arr + i) = *(arr + 4 - i);// Swap the current element with the corresponding element from the end
+        *(arr + 4 - i) = temp;      // Swap the element from the end with temp
     }
     return arr;
 }
