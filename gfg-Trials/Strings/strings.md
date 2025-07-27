@@ -11,3 +11,5 @@
 ## Types of Strings in C+
 - C - Style Srings (char str[] = "hello"; | char str[] = {h,e,l,l,o,\0})
 - C++ String Class
+
+## Continuation of String
