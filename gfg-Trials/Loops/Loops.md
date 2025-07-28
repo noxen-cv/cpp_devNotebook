@@ -9,3 +9,6 @@ Types of Loops
 
 #### For Loop Syntax
 for(initialization; condition; updation)
+
+    Range-Based For Loop
+    for (declaration : collection)
