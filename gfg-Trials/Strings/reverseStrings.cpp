@@ -31,6 +31,7 @@ class Reverse {
                 left++;
                 right--;
             }
+            return str;
         }
 };
 
@@ -42,6 +43,7 @@ int main() {
     std::string reversed1 = rev.reverseString1(str1);
     std::cout << "Reversed String 1: " << reversed1 << std::endl;
 
+    
     std::string reversed2 = rev.reverseString2(str1);
     std::cout << "Reversed String 2: " << reversed2 << std::endl;
 
@@ -60,5 +62,6 @@ reverseString1
 reverseString2
     std::swap(str[left], str[right]); swaps elements in place without extra copies, no new memory, just index-based swaps.
     Total cost is O(n) since each element is moved at most once.
+    - More efficient for larger strings, especially when memory usage is a concern.
 
 */
