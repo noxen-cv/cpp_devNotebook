@@ -3,23 +3,45 @@
 
 using namespace std;
 
-int main() {
-    string s;
-    cin >> s;
 
-    int start = 0;
-    int end = s.length() - 1;
+class Palindrome {
 
-    while(start < end) {
-        if(s[start] != s[end]) {
-            cout << "No" << endl;
-            return 0; 
+    public:
+
+    bool isPalindrome(string& str) {
+        int start = 0;
+        int last = str.size() - 1;
+
+        while ( start < last) {
+            if (str[start] != str[last]) {
+                return false;
+            }
+            start++;
+            last--;
         }
-        start++;
-        end--;
+        return true;
     }
 
-    cout << "Yes" << endl; // If the loop completes, the string is a palindrome.
+};
+
+int main() {
+    string s;
+    
+    Palindrome p;
+
+    cout << "Word Palindrome Checker" << endl;
+
+    cout << "Enter a word: ";
+    cin >> s;
+
+    bool result = p.isPalindrome(s);
+
+    if(result == true) {        // or just if(result) {
+        cout << "Yes, It is a palindrome. " << endl;
+    } else {
+        cout << "No, It is not a palindrome. " << endl;
+    }
+    
 
     return 0;
 }
