@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class converter {
+class binaryDecimal {
 
     public:
         void binary_to_decimal(const string& s) { // Inefficient, uses copy of string, 
@@ -33,8 +33,21 @@ class converter {
 
 };
 
+
+class decimalBinary: public binaryDecimal {
+    public: 
+        void decimal_to_binary(int n) {
+            string result = "";
+            while (n > 0) {
+                result = to_string(n % 2) + result; // Prepend the binary digit
+                n /= 2;
+            }
+            cout << result;
+        }
+};
+
 int main() {
-    converter conv;
+    binaryDecimal conv;
     string binary; // Binary String Input
 
     cout << "Enter Binary for Conversion: ";
