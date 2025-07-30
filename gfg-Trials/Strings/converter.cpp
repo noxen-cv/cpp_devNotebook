@@ -57,6 +57,22 @@ class decimalBinary: public binaryDecimal {
             reverse(result.begin(), result.end()); // Reverse the string to get the correct binary representation
             return result;      
         }
+
+        string decimal_to_binary(int n) {
+            if (n == 0) return "0";
+
+            string result;
+            result.reserve(32); // Preallocate assuming a 32-bit integer
+
+            while (n > 0) {
+                result.push_back('0' + (n % 2)); // Append binary digit as char
+                n /= 2;
+            }
+
+            reverse(result.begin(), result.end()); // Reverse to get correct order
+            return result;
+        }
+
 };
 
 int main() {
