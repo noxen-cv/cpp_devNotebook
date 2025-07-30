@@ -44,6 +44,19 @@ class decimalBinary: public binaryDecimal {
             }
             cout << result;
         }
+
+        string decimal_to_binary(int& n) {
+            string result = "";
+
+            while (n > 0) {
+                int t = n % 2;                      // Calculate the remainder (0 or 1)
+                result = result + to_string(t);     // Convert the remainder to string and append it
+                n = n / 2;                          // Update the number by dividing it by 2
+            }
+
+            reverse(result.begin(), result.end()); // Reverse the string to get the correct binary representation
+            return result;      
+        }
 };
 
 int main() {
