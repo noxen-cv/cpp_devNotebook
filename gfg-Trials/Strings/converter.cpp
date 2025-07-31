@@ -36,7 +36,7 @@ class binaryDecimal {
 
 class decimalBinary: public binaryDecimal {
     public: 
-        void decimal_to_binary(int n) {
+        void decimal_to_binary1(int n) {
             string result = "";
             while (n > 0) {
                 result = to_string(n % 2) + result; // Prepend the binary digit
@@ -45,7 +45,7 @@ class decimalBinary: public binaryDecimal {
             cout << result;
         }
 
-        string decimal_to_binary(int& n) {
+        string decimal_to_binary2(int& n) {
             string result = "";
 
             while (n > 0) {
@@ -58,7 +58,7 @@ class decimalBinary: public binaryDecimal {
             return result;      
         }
 
-        string decimal_to_binary(int n) {
+        string decimal_to_binary3(int& n) {
             if (n == 0) return "0";
 
             string result;
@@ -72,6 +72,9 @@ class decimalBinary: public binaryDecimal {
             reverse(result.begin(), result.end()); // Reverse to get correct order
             return result;
         }
+
+        
+
 
 };
 
@@ -91,3 +94,29 @@ int main() {
 
     return 0;
 }
+
+
+/* 
+        FINDING EFFICIENCIES IN THE FUNCTIONS IN decimalBinary class:
+        void decimal_to_binary1(int n) - Prepending (result = ... + result) is inefficient because:
+                                        It causes O(n²) time in the worst case due to repeated shifting of characters in memory.
+
+                                        Returns nothing, just prints. So it's less flexible.
+
+                                        Simpler and works directly without reversing.
+        string decimal_to_binary2(int& n) Appending is more efficient than prepending. The loop runs in O(log n), and appending is O(1) amortized per character.
+
+                                        Reversal at the end is O(n), so overall this version is O(n), not O(n²).
+
+                                        Returns a string, making it more reusable and testable.
+
+        string decimal_to_binary3(int& n) push_back is faster than string concatenation.
+
+                                        Avoids overhead of to_string.
+
+                                        reserve(32) minimizes reallocations (32 bits max for int).
+
+                                        Clean and readable.
+
+        
+        */
