@@ -8,7 +8,9 @@
  * 
  */
 
- #include <iostream>
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
 class doublePointers {
@@ -48,10 +50,19 @@ public:
         cout << endl;
     }
 
-    // declare as friend function to access private variable
-    friend class arrayOfPointers; 
-    friend class arrayOfVectors; 
-    friend class  vectorsOfVectors; 
+    /* 
+    Dynamic Allocation:
+        Memory is allocated dynamically for both the row pointers and the rows themselves.
+        This approach ensures flexibility in creating 2D arrays at runtime.
+            Jagged Arrays:
+          Using this technique, you can also create jagged arrays, where each row has a different number of columns.
+            For example:
+                for (int i = 0; i < m; i++)
+                    arr[i] = new int[i + 1]; // Rows with increasing column sizes
+             In this case, the first row will have 1 column, the second row 2 columns, and so on.
+        Limitations:
+            This approach is not cache-friendly because rows are stored in non-contiguous memory locations. As a result, accessing the elements may cause cache misses, slowing down performance.
+*/
 };
 
 class arrayOfPointers {
