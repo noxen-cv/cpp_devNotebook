@@ -11,14 +11,14 @@
  #include <iostream>
 using namespace std;
 
-class Dynamic2DArray {
+class doublePointers {
 private:
     int** arr;
     int rows, cols;
 
 public:
     // Constructor
-    Dynamic2DArray(int m, int n) : rows(m), cols(n) {
+    doublePointers(int m, int n) : rows(m), cols(n) {
         arr = new int*[rows];
         for (int i = 0; i < rows; ++i) {
             arr[i] = new int[cols];
@@ -26,7 +26,7 @@ public:
     }
 
     // Destructor to free memory
-    ~Dynamic2DArray() {
+    ~doublePointers() {
         for (int i = 0; i < rows; ++i) {
             delete[] arr[i];
         }
@@ -47,8 +47,62 @@ public:
                 cout << arr[i][j] << " ";
         cout << endl;
     }
+
+    // declare as friend function to access private variable
+    friend class arrayOfPointers; 
+    friend class arrayOfVectors; 
+    friend class  vectorsOfVectors; 
 };
 
+class arrayOfPointers {
+    private:
+    int** arr; 
+    int rows, cols;
+
+public:
+    // Constructor allocates memory
+    arrayOfPointers(int m, int n) : rows(m), cols(n) {
+        arr = new int*[rows];
+        for (int i = 0; i < rows; ++i) {
+            arr[i] = new int[cols];
+        }
+    }
+
+    // Destructor frees memory
+    ~arrayOfPointers() {
+        for (int i = 0; i < rows; ++i) {
+            delete[] arr[i];
+        }
+        delete[] arr;
+    }
+
+    // Fill the array with a specific value
+    void fill(int value) {
+        for (int i = 0; i < rows; ++i)
+            for (int j = 0; j < cols; ++j)
+                arr[i][j] = value;
+    }
+
+    // Print the array elements
+    void print() const {
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                cout << arr[i][j] << " ";
+            }
+        }
+        cout << endl;
+    }
+};
+
+
+class arrayOfVectors {
+
+
+};
+
+class vectorsOfVectors {
+
+};
 
 int main() {
 
