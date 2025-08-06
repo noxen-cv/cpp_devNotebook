@@ -104,8 +104,24 @@ public:
 
 
 class arrayOfVectors {
+    int rows, cols;
+    vector<vector<int>> arr;
 
+public:
+    arrayOfVectors(int m, int n) : rows(m), cols(n), arr(rows, vector<int>()) {}
 
+    void fill(int value) {
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < cols; j++)
+                arr[i].push_back(value); // Push values into the vector
+    }
+
+    void print() const {
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < cols; j++)
+                cout << arr[i][j] << " ";
+        cout << endl;
+    }
 };
 
 class vectorsOfVectors {
