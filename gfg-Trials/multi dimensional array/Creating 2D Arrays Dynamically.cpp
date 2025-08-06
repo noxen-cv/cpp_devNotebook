@@ -102,7 +102,6 @@ public:
     }
 };
 
-
 class arrayOfVectors {
     int rows, cols;
     vector<vector<int>> arr;
@@ -144,8 +143,8 @@ class vectorsOfVectors {
     }
 
     void print(){
-        for(int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++){
+        for(int i = 0; i < arr.size(); i++) {
+            for (int j = 0; j < arr[i].size(); j++){
                 cout << arr[i][j] << " ";
             }
         }
