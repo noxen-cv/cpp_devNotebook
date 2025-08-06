@@ -73,10 +73,7 @@ class arrayOfPointers {
 public:
     // Constructor allocates memory
     arrayOfPointers(int m, int n) : rows(m), cols(n) {
-        arr = new int*[rows];
-        for (int i = 0; i < rows; ++i) {
-            arr[i] = new int[cols];
-        }
+
     }
 
     // Destructor frees memory
