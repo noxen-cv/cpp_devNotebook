@@ -125,6 +125,32 @@ public:
 };
 
 class vectorsOfVectors {
+    private:
+    int rows, cols;
+    vector<vector<int>> arr;
+
+    public:
+
+    vectorsOfVectors(int n, int m) : rows(n), cols(m) {}
+
+    void fill(int value) {
+        for (int i = 0; i < rows; i++) {
+            vector<int> rows;
+            for(int j = 0; j < cols; j++){
+                rows.push_back(value);
+            }
+            arr.push_back(rows);
+        }
+    }
+
+    void print(){
+        for(int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++){
+                cout << arr[i][j] << " ";
+            }
+        }
+        cout << endl;
+    }
 
 };
 
