@@ -155,10 +155,14 @@ class vectorsOfVectors {
 
 int main() {
     cout << "Demonstration of Dynamic 2D Array\n";
+    int n,m,o;
+    
 
     while(true) {
-    cout << "Array Of Pointers";
-
+    cout << "Array Of Pointers\n";
+    arrayOfPointers ap(n,m);
+    ap.fill(o);
+    ap.print();
     }
 
     return 0;
