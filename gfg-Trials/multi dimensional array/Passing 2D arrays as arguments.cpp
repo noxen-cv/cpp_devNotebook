@@ -20,16 +20,20 @@ class doublePointers {
 
     public:
     
-    doublePointers(int** arr, int m, int n) : rows(m), cols(n), arr(arr) {
-        int** arr = new int*[rows];
+    doublePointers(int m, int n) : rows(m), cols(n) {
+        arr = new int*[rows];
 
         for(int i = 0; i < m; i++) {
-            arr[i] = new int[m];        // Heap Allocation for every index
+            arr[i] = new int[rows];        // Heap Allocation for every index
         }
     }
     ~doublePointers() {
-        delete arr;
-    }
+        for(int i = 0; i < rows; i++) {
+            delete[] arr[i];
+            }
+        delete[] arr;
+        }
+        
 
     void fill(int size = 5) {
         for(int i = 0; i < rows; i++) {
@@ -46,25 +50,20 @@ class doublePointers {
         }
     }
     
-
-
 };
 
 int main() {
     int m, n, size;
-
-    int** arr = new int*[m];
     
     cout << "Enter Input Rows, then Cols: ";
     cin >> m >> n;
 
-    doublePointers dp(arr,m,n); 
+    doublePointers dp(m,n); 
 
     cout << "Enter Size to Fill: ";
     cin >> size;
 
     dp.fill(size);
-
     dp.print();
 
     return 0;
