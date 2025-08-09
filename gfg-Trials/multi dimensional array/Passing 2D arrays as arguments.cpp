@@ -21,10 +21,10 @@ class doublePointers {
     public:
     
     doublePointers(int m, int n) : rows(m), cols(n) {
-        arr = new int*[rows];               // Allocate ??
+        arr = new int*[rows];               // Allocate an array of int pointers (rows on the heap)
 
         for(int i = 0; i < m; i++) {
-            arr[i] = new int[rows];        // Heap Allocation for every index
+            arr[i] = new int[rows];        // For each row, allocate an array of 'cols' integers on the heap
         }
     }
     ~doublePointers() {
@@ -51,33 +51,33 @@ class doublePointers {
     }   
 };
 
-class vectorSTL {
+class vectorSTL { // C-Style Array of Vectors
     private:
     int rows, cols;
-    vector<int>* arr; // C-Style Array of Vectors
+    vector<int>* arr; // Pointer to a C-style array of vectors, allocated on the heap
 
     public:
         vectorSTL(int m, int n) : rows(m), cols(n) {
-            arr = new vector<int>[rows];        // Allocate Heap Memory with Array of Vectors
-        }
+            arr = new vector<int>[rows];        // Allocate an array of 'rows' vectors on the heap
+        }                                       // Each arr[i] is an empty vector<int> at this point
 
         void fill() {
             for(int i = 0; i < rows; i++) {
                 for(int j = 0; j < cols; j++) {
-                    arr[i].push_back(i);        // Fill 
-        } } }
+                    arr[i].push_back(i);         // For each vector arr[i], push 'i' 'cols' times
+        } } }                                    // This fills row i with the value i, cols times
 
         void print() {
             for(int i = 0; i < rows; i++){
                 for(int j = 0; j < cols; j++){
-                    cout << arr[i][j] << " ";
+                    cout << arr[i][j] << " ";   // Print each element in vector arr[i]
                 }
-            }
-        }
+            cout << endl;                       // Newline after each row for readability
+        } }
 
         ~vectorSTL() {  
-            delete[] arr;    // deleting arrays allocated with new[] 
-        }
+            delete[] arr;               // Delete the array of vectors allocated with new[]
+        }                               // Each vector cleans up its own internal memory automatically
 
         /**
          * Destructor needed since the use of C-Style Array of Vectors use new[] heap allocation
@@ -90,37 +90,38 @@ class vectorSTL {
 class vectorVectors {
     private:
         int rows, cols;
-        vector<vector<int>> arr;
+        vector<vector<int>> arr;                            // 2D vector: vector of vectors, automatically manages memory
 
     public:
     
     vectorVectors(int m, int n) : rows(m), cols(n) {
         
         for(int i = 0; i < rows; i ++){
-            vector<int> v;
+            vector<int> v;                                  // temporary vector to hold one row
                 for(int j = 0; j < cols; j++) {
-                    v.push_back(i); // another approach v.push_back(vector<int>(cols,i)); Creates a vector of length cols where every element is i.
-            }
+                    v.push_back(i);                         // another approach v.push_back(vector<int>(cols,i)); 
+            }                                               // Creates a vector of length cols where every element is i.
         arr.push_back(v);
         }
         
     }
 
-    /* vector of vectors STL libraries do not need destructors as 
+    /* vector of vectors STL libraries do not need destructors because it didn't use a new[] memory heap, and
     when program is out of scope, it automatically destroys */   
 
-    void fill(int size = 5) {
+    void fill() {
         for(int i = 0; i < rows; i++) {
             for(int j = 0; j < cols; j++){
-                arr[i][j] = i + j;
+                arr[i][j] = i + j;                          // Modify each element; example pattern
     }   }   }
 
 
     void print() {
         for(int i = 0; i < rows; i++) {
-            for(int j = 0; j < cols; j++) {
-                cout << arr[i][j] << " ";
+            for(int j = 0; j < arr[i].size(); j++) {        // Using arr[i].size() for more flexibility 
+                cout << arr[i][j] << " ";                   // and will rely on the vector's actual size rather than a fixed column count.
             }
+        cout << endl;                                       // Add newline for readability
         }
     }
     
