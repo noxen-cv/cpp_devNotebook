@@ -154,8 +154,6 @@ class vectorsOfVectors {
 };
 
 int main() {
-
-    // Still in Practice Development 
     cout << "Demonstration of Dynamic 2D Array\n";
     int n,m,o;
     
@@ -167,6 +165,14 @@ int main() {
     ap.print();
 
     }
+
+
+
+    /* main function still in development 
+    
+    FOR COMPARISON FOR EVERY METHODS, REFER TO multidimensional array.md 
+    
+    */
     
 
     return 0;
