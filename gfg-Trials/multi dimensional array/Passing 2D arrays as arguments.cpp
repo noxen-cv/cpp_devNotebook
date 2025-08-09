@@ -52,14 +52,14 @@ class doublePointers {
     
 };
 
-class vectorSTL {
+class vectorVectors {
     private:
         int rows, cols;
         vector<vector<int>> arr;
 
     public:
     
-    vectorSTL(int m, int n) : rows(m), cols(n) {
+    vectorVectors(int m, int n) : rows(m), cols(n) {
         
         for(int i = 0; i < rows; i ++){
             vector<int> v;
