@@ -21,7 +21,7 @@ class doublePointers {
     public:
     
     doublePointers(int m, int n) : rows(m), cols(n) {
-        arr = new int*[rows];
+        arr = new int*[rows];               // Allocate ??
 
         for(int i = 0; i < m; i++) {
             arr[i] = new int[rows];        // Heap Allocation for every index
@@ -48,8 +48,43 @@ class doublePointers {
                 cout << arr[i][j] << " ";
             }
         }
-    }
-    
+    }   
+};
+
+class vectorSTL {
+    private:
+    int rows, cols;
+    vector<int>* arr; // C-Style Array of Vectors
+
+    public:
+        vectorSTL(int m, int n) : rows(m), cols(n) {
+            arr = new vector<int>[rows];        // Allocate Heap Memory with Array of Vectors
+        }
+
+        void fill() {
+            for(int i = 0; i < rows; i++) {
+                for(int j = 0; j < cols; j++) {
+                    arr[i].push_back(i);        // Fill 
+        } } }
+
+        void print() {
+            for(int i = 0; i < rows; i++){
+                for(int j = 0; j < cols; j++){
+                    cout << arr[i][j] << " ";
+                }
+            }
+        }
+
+        ~vectorSTL() {  
+            delete[] arr;    // deleting arrays allocated with new[] 
+        }
+
+        /**
+         * Destructor needed since the use of C-Style Array of Vectors use new[] heap allocation
+         * vector of Vectors don't... refer to the class for in-depth review
+        */
+
+
 };
 
 class vectorVectors {
@@ -71,8 +106,8 @@ class vectorVectors {
         
     }
 
-    /* vector STL libraries do not need destructors as 
-    when program is out of scope, it automatically destroys*/   
+    /* vector of vectors STL libraries do not need destructors as 
+    when program is out of scope, it automatically destroys */   
 
     void fill(int size = 5) {
         for(int i = 0; i < rows; i++) {
