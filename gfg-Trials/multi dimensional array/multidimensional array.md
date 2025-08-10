@@ -9,8 +9,7 @@ The general form of declaring N-dimensional arrays is:
     size1, size2,… ,sizeN: Sizes of the dimension
 
 
-
-
+## Methods of Multidimensional Arrayys to use
 ### Summary of Methods
 
 | Method                   | Flexibility                | Ease of Use | Performance             |

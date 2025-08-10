@@ -141,7 +141,11 @@ int main() {
     dp.fill(size);
     dp.print();
 
-    /* main function still in development */
+    /* main function still in development 
+    
+    FOR COMPARISON FOR EVERY METHODS, REFER TO multidimensional array.md 
+    
+    */
 
     return 0;
 }
