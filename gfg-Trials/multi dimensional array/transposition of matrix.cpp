@@ -15,15 +15,18 @@ class transpose {
 
     public:
     // Constructor Getters and Setters method
-    transpose(int size = 0) : size(size) {
+    transpose(const vector<vector<int>>& vec) : vec1(vec) {
         
     }    
-    void setVal(int* size) { 
-        this->size = *size;
-        
-    }
 
-    void setValue(int val) {        
+    void setValue(int val) { 
+        for(int i = 0; i < val; i++) {
+            for(int j = 0; j < val; j++) {
+                int val;
+                cin >> val;
+                vec1[i][j] = val;
+            }
+        }
     }
 
     void swap() {
@@ -37,7 +40,6 @@ void print(string str) {
 }
 
 int main() {
-    transpose tr;
     int size;       // Maintaining Square 2d array with same rows and cols
     int val;        // Value Index inside the Matrix;
 
@@ -45,7 +47,8 @@ int main() {
 
     print("Set the Fixed Square Size: ");
     cin >> size;
-    tr.setVal(&size);
+    transpose tr(vec);
+    tr.setValue(size);
 
 
 
