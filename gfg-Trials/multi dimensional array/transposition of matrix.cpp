@@ -15,9 +15,7 @@ class transpose {
 
     public:
     // Constructor Getters and Setters method
-    transpose(const vector<vector<int>>& vec, int& size) : vec1(vec), size(size) {
-        
-    }    
+    transpose(const vector<vector<int>>& vec, int& size) : vec1(vec), size(size) {}    
 
     void setValue() { 
         for(int i = 0; i < size; i++) {
@@ -75,5 +73,5 @@ int main() {
 
 
 
-    
+    return 0;
 }
