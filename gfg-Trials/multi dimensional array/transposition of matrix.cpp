@@ -8,7 +8,7 @@ class transpose {
     private:
         int size;
         vector<vector<int>> vec1;
-        vector<vector<int>> ans;
+        vector<vector<int>> ans;        // ans declared, will initialize later using resize()
         
         
         
@@ -39,7 +39,7 @@ class transpose {
     }
 
     void swap() {
-        ans.resize(size, vector<int>(size, 0)); // resize() operato for declare first, fill later
+        ans.resize(size, vector<int>(size, 0)); // use resize() operator for fill
 
         for(int i = 0; i < size; i++) {
             for(int j = 0; j < size; i++) {
