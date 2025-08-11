@@ -23,6 +23,7 @@ class transpose {
         for(int i = 0; i < size; i++) {
             for(int j = 0; j < size; j++) {
                 int val;
+                cout << "Value: ";
                 cin >> val;
                 vec1[i][j] = val;
             }
@@ -52,7 +53,7 @@ class transpose {
 };
 
 void print(string str) {
-    cout << str << endl;
+    cout << str;
 }
 
 int main() {
@@ -61,10 +62,16 @@ int main() {
 
     vector<vector<int>> vec(size, vector<int>(size, 0));  // Syntax Breakdown: vector<vector<int>> name(rows, vector<int>(cols, init_value)); declare and initialized
 
+    // Set the Size of the Square with fixed ratio
     print("Set the Fixed Square Size: ");
     cin >> size;
     transpose tr(vec, size);
+
+
+    print("Set Values of every index column and row.\n");
     tr.setValue();
+    
+    print("");
 
 
 
