@@ -11,7 +11,7 @@ class matrices {
     public: 
         matrices(int& size) : size(size) {}
 
-    void fill(vector<vector<int>> mat) {
+    void fill(vector<vector<int>>& mat) {
         for(int i = 0; i < size ; i++){
             for(int j = 0; j < size; j++){
                 int t;
