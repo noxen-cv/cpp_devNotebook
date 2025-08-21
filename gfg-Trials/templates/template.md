@@ -34,3 +34,21 @@ Reusable: Templates enable creating generic code for multiple data types, which 
 Macros: 
     #define myMax(X, Y) ((X) > (Y) ? (X) : (Y))
 
+
+
+    Syntax for Defining Function Templates
+    A function template in C++ is defined using the following syntax:
+
+    template <typename T>
+
+    T functionName(T parameter1, T parameter2, ...) {
+        
+        // code
+
+    }
+
+
+        ### template: A keyword that tells the compiler the following function is a template.
+        ### <typename T>: Specifies a placeholder for the data type. This T can be replaced by any type during compilation (e.g., int, float, char, etc.).
+        You can replace typename with class, as both keywords are interchangeable in this context.
+        Multiple placeholders can also be used
