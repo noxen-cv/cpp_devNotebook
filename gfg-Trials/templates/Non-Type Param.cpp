@@ -16,6 +16,9 @@ T arrMax(T arr[], int n) {
     return res;
 }
 
+
+
+
 int main()
 {
     try {
@@ -46,7 +49,18 @@ int main()
             The compiler replaces the placeholder T with int.
             The limit parameter is replaced by 5, making it possible to enforce the size check at runtime.
         4. Exception Handling:
-            If the size of the array exceeds the limit, the program throws an exception, which is caught and displayed in the catch block.
+        If the size of the array exceeds the limit, the program throws an exception, which is caught and displayed in the catch block.
+
+
+
+
+
+
+
+
+
 
 
 */
+
+
