@@ -18,15 +18,18 @@ void printArray(T arr[], int n) {
 template <typename T>
 void selection(T arr[], int n) {
     T arr[];
-    
+    for(int i = 0; i < n; i++) {
+
+    }
 }
 
 
 int main() {
     int n;
+    
     float x;
 
 
-    sortArray()
+    return 0;
 
 }
