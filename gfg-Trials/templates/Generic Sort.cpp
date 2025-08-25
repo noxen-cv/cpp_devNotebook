@@ -16,7 +16,7 @@ void printArray(T arr[], int n) {
 }
 
 template <typename T>
-void selection(T arr[], int n) {
+void selection(T arr[], T n) {
     T arr[];
     for(int i = 0; i < n; i++) {
 
@@ -26,8 +26,15 @@ void selection(T arr[], int n) {
 
 int main() {
     int n;
-    
+    int arr[] = {1,2,3,4,5};
+    size_t arr_Size = sizeof(arr) / sizeof(arr[0]);
+
+    selection(arr, n);
     float x;
+
+    sortArray(arr, n);
+
+    printArray(arr, n);
 
 
     return 0;
