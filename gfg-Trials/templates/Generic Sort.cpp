@@ -12,6 +12,9 @@ template <typename T>       // Using <typename T> and <class T> is the same
 void printArray(T arr[], int n) {
     for(int i = 0; i < n; i++){
         cout << arr[i] << " ";
+
+
+        
     }
 }
 
