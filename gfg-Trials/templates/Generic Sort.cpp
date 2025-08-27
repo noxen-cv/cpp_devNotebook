@@ -14,7 +14,7 @@ void printArray(T arr[], int n) {
         cout << arr[i] << " ";
 
 
-        
+
     }
 }
 
@@ -35,6 +35,8 @@ int main() {
     selection(arr, n);
     float x;
 
+
+    
     sortArray(arr, n);
 
     printArray(arr, n);
