@@ -35,12 +35,14 @@ int main() {
     selection(arr, n);
     float x;
 
-
+    // New Function Creation for generic sorting with proper documentation
     
     sortArray(arr, n);
 
     printArray(arr, n);
 
+
+    
 
     return 0;
 
