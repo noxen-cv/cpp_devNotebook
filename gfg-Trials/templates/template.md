@@ -52,3 +52,16 @@ Macros:
         ### <typename T>: Specifies a placeholder for the data type. This T can be replaced by any type during compilation (e.g., int, float, char, etc.).
         You can replace typename with class, as both keywords are interchangeable in this context.
         Multiple placeholders can also be used
+
+
+A class template allows you to parameterize the data type. 
+    - Define a generic class using the template keyword.
+    - Use typename or class to define the data type as a parameter (e.g., T).
+    - The compiler generates a type-specific class during instantiation when you specify the data type.
+
+You can create a stack class that works with int, float, or even user-defined data types like Student.
+A pair class can represent a pair of any two data types such as integers, strings, or even objects.
+
+
+Defining Class Methods Outside the Class
+ In C++, you can define class methods outside the class using the scope resolution operator (::). For templated classes, you must include the template declaration when defining methods.
