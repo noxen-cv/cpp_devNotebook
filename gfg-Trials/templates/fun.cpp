@@ -4,14 +4,25 @@
 using namespace std;
  
 template <typename T>       
-void fun(const T&x)         
-{
+void fun(const T&x) {
     static int count = 0;              // means each template instantiation has its own separate count.
     cout << "x = " << x << " count = " << count << endl;    
     ++count;
     return;                 // return; without a value is perfectly valid inside a function with return type void.
 }                           // It’s optional at the end but sometimes used for clarity or early exit.
 
+
+template <class T>
+class Test {
+private:
+    T val;
+public:
+    static int count;
+    Test()  {   count++;   }
+};
+ 
+template<class T>
+int Test<T>::count = 0;
 
 int main()
 {
