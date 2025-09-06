@@ -2,12 +2,22 @@
 
 Templates allow developers to write generic code, where the data type is determined at compile time. The idea is to write code once and use it for any data type. Instead of rewriting the same logic for different data types (e.g., int, float, char), templates let the compiler generate a specific type-based implementation when needed.
 
-Key Characteristics of Templates:
-Write Once, Use for Any Data Type: Templates enable defining a single generic function or class that works for all data types.
-Compiler-Generated Code: The compiler automatically generates type-specific code during compilation based on the template.
-Avoids Redundancy: Saves effort by reusing the same logic for different data types.
-Better Than Macros: Unlike macros, templates perform type checking during compilation, making the code safer and less error-prone.
 
+1) Templates are a feature of C++ that allows us to write one code for different data types.
+2) We can write one function that can be used for all data types including user defined types. Like sort(), max(), min(), ..etc.
+3) We can write one class or struct that can be used for all data types including user defined types. Like Linked List, Stack, Queue ..etc.
+4) Template is an example of compile time polymorphism.
+
+Key Characteristics of Templates:
+    Write Once, Use for Any Data Type: Templates enable defining a single generic function or class that works for all data types.
+    Compiler-Generated Code: The compiler automatically generates type-specific code during compilation based on the template.
+    Avoids Redundancy: Saves effort by reusing the same logic for different data types.
+    Better Than Macros: Unlike macros, templates perform type checking during compilation, making the code safer and less error-prone.
+
+
+
+
+ 
 
 Types of Templates in C++
 There are two types of templates in C++:
@@ -65,3 +75,9 @@ A pair class can represent a pair of any two data types such as integers, string
 
 Defining Class Methods Outside the Class
  In C++, you can define class methods outside the class using the scope resolution operator (::). For templated classes, you must include the template declaration when defining methods.
+
+
+
+
+ REMEMBER:
+ Function templates allow you to define a single function template, which can then be instantiated for multiple types at compile time. The same function name can be used for different types
