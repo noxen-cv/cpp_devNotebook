@@ -21,16 +21,25 @@ public:
     Test()  {   count++;   }
 };
  
-template<class T>
-int Test<T>::count = 0;
+template<class T> 
+int Test<T>::count = 0; // Static Member Initialization, count initialized to 0.
 
-int main()
-{
+int main() {
+    /* FUN template */
     fun<int> (1);           // creates an instance of fun where T = int.
     cout << endl;
     fun<int>(1);            
     cout << endl;   
     fun<double>(1.1);       // creates a separate instance of fun where T = double.
     cout << endl;
+
+    /* test template */
+    Test<int> a;
+    Test<int> b;
+    Test<double> c;
+
+    cout << Test<int>::count << endl;
+    cout << Test<double>::count << endl;
+
     return 0;
 }
