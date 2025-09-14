@@ -14,26 +14,3 @@ int main()
     cout << ::max<double>(3,7.0) << endl; // alternate: use explicit type to make both arg with same type
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
