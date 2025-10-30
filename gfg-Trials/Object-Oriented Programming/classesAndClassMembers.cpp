@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 
-
 using namespace std;
   
 class Employee {  //Class Declaration
@@ -42,3 +41,15 @@ int main()
     emp_ptr->work();
     return 0;
 }
+
+/* OUTPUTS: 
+Employee ID: GFG123
+Name: John
+Experience (in years): 3
+Employee: GFG123 is working
+
+Employee ID: GFG456
+Name: James
+Experience (in years): 4
+Employee: GFG456 is working
+*/
