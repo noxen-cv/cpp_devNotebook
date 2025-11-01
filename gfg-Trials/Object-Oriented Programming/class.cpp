@@ -9,7 +9,7 @@ public:
 };
 
 int main() {
-    MyClass obj;      // create an object of MyClass
-    obj.display();    // call the display() function
+    MyClass obj;     
+    obj.display();   
     return 0;
 }
