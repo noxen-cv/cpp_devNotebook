@@ -15,8 +15,11 @@ lib/
 *.i*86
 *.x86_64
 *.hex
+<<<<<<< HEAD
 /archive/
 /backup_20251105_094950/
+=======
+>>>>>>> c21a324b18f960d916b369501861bd0800ec8157
 
 # ===================
 # Compiled Objects
@@ -119,8 +122,11 @@ ipch/
 # ===================
 # macOS
 # ===================
+<<<<<<< HEAD
 # migrate.sh ignored
 migrate.sh  
+=======
+>>>>>>> c21a324b18f960d916b369501861bd0800ec8157
 .DS_Store
 .AppleDouble
 .LSOverride
