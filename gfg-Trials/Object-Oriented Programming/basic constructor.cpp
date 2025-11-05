@@ -9,3 +9,9 @@ class User {
         cout << "Default" << endl;
     }
 };
+
+int main() {
+    User usr();
+
+    return 0;
+}
