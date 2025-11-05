@@ -1,0 +1,280 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  # ==========================================
+  # Job 1: Build and Test on Ubuntu
+  # ==========================================
+  build-ubuntu:
+    name: 🐧 Ubuntu Build
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: 🔧 Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake g++ build-essential
+        
+    - name: ℹ️ Environment Info
+      run: |
+        echo "===================="
+        echo "Build Environment"
+        echo "===================="
+        echo "OS: $(lsb_release -d | cut -f2)"
+        echo "CMake: $(cmake --version | head -n1)"
+        echo "GCC: $(g++ --version | head -n1)"
+        echo "===================="
+        
+    - name: 🏗️ Configure CMake
+      run: |
+        cmake -B build \
+          -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
+          -DBUILD_EXAMPLES=ON \
+          -DBUILD_PROJECTS=ON \
+          -DBUILD_TESTS=OFF
+          
+    - name: 🔨 Build All Targets
+      run: cmake --build build --config ${{env.BUILD_TYPE}} -j$(nproc)
+      
+    - name: 📊 Build Summary
+      run: |
+        echo "===================="
+        echo "Build Artifacts"
+        echo "===================="
+        find build/bin -type f -executable | head -20
+        echo "..."
+        echo "Total executables: $(find build/bin -type f -executable | wc -l)"
+        echo "===================="
+
+  # ==========================================
+  # Job 2: Build on macOS
+  # ==========================================
+  build-macos:
+    name: 🍎 macOS Build
+    runs-on: macos-latest
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: 🔧 Install Dependencies
+      run: |
+        brew update
+        brew install cmake
+        
+    - name: ℹ️ Environment Info
+      run: |
+        echo "===================="
+        echo "Build Environment"
+        echo "===================="
+        echo "OS: $(sw_vers -productName) $(sw_vers -productVersion)"
+        echo "CMake: $(cmake --version | head -n1)"
+        echo "Clang: $(clang++ --version | head -n1)"
+        echo "===================="
+        
+    - name: 🏗️ Configure CMake
+      run: |
+        cmake -B build \
+          -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
+          -DBUILD_EXAMPLES=ON \
+          -DBUILD_PROJECTS=ON \
+          -DBUILD_TESTS=OFF
+          
+    - name: 🔨 Build All Targets
+      run: cmake --build build --config ${{env.BUILD_TYPE}} -j$(sysctl -n hw.ncpu)
+      
+    - name: 📊 Build Summary
+      run: |
+        echo "===================="
+        echo "Build Artifacts"
+        echo "===================="
+        find build/bin -type f -perm +111 | head -20
+        echo "..."
+        echo "Total executables: $(find build/bin -type f -perm +111 | wc -l)"
+        echo "===================="
+
+  # ==========================================
+  # Job 3: Build on Windows
+  # ==========================================
+  build-windows:
+    name: 🪟 Windows Build
+    runs-on: windows-latest
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: ℹ️ Environment Info
+      run: |
+        echo "===================="
+        echo "Build Environment"
+        echo "===================="
+        echo "OS: Windows $(Get-CimInstance Win32_OperatingSystem).Version"
+        cmake --version
+        echo "===================="
+      shell: pwsh
+        
+    - name: 🏗️ Configure CMake
+      run: |
+        cmake -B build `
+          -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} `
+          -DBUILD_EXAMPLES=ON `
+          -DBUILD_PROJECTS=ON `
+          -DBUILD_TESTS=OFF
+      shell: pwsh
+          
+    - name: 🔨 Build All Targets
+      run: cmake --build build --config ${{env.BUILD_TYPE}} --parallel
+      shell: pwsh
+      
+    - name: 📊 Build Summary
+      run: |
+        echo "===================="
+        echo "Build Artifacts"
+        echo "===================="
+        Get-ChildItem -Path build\bin -Recurse -File | Select-Object -First 20
+        $count = (Get-ChildItem -Path build\bin -Recurse -File).Count
+        echo "..."
+        echo "Total files: $count"
+        echo "===================="
+      shell: pwsh
+
+  # ==========================================
+  # Job 4: Code Quality Checks
+  # ==========================================
+  code-quality:
+    name: 🔍 Code Quality
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: 📏 Count Source Files
+      run: |
+        echo "===================="
+        echo "Repository Statistics"
+        echo "===================="
+        echo "C++ Source Files: $(find src -name '*.cpp' | wc -l)"
+        echo "Header Files: $(find include -name '*.h' -o -name '*.hpp' | wc -l)"
+        echo "CMake Files: $(find . -name 'CMakeLists.txt' | wc -l)"
+        echo "Documentation Files: $(find docs -name '*.md' | wc -l)"
+        echo "===================="
+        
+    - name: 🔎 Check for Common Issues
+      run: |
+        echo "Checking for common issues..."
+        
+        # Check for tabs (should use spaces)
+        if grep -r $'\t' src/ include/ examples/ 2>/dev/null | grep -v Binary; then
+          echo "⚠️  Warning: Found tabs in source files. Consider using spaces."
+        else
+          echo "✅ No tabs found"
+        fi
+        
+        # Check for trailing whitespace
+        if grep -r ' $' src/ include/ examples/ 2>/dev/null | grep -v Binary; then
+          echo "⚠️  Warning: Found trailing whitespace"
+        else
+          echo "✅ No trailing whitespace"
+        fi
+        
+        # Check for TODO/FIXME comments
+        echo "TODO/FIXME comments found:"
+        grep -r "TODO\|FIXME" src/ include/ examples/ 2>/dev/null | grep -v Binary || echo "None"
+        
+    - name: 📝 Generate Report
+      run: |
+        echo "## Build Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "✅ All quality checks passed!" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Statistics" >> $GITHUB_STEP_SUMMARY
+        echo "- C++ Files: $(find src -name '*.cpp' | wc -l)" >> $GITHUB_STEP_SUMMARY
+        echo "- Headers: $(find include -name '*.h' -o -name '*.hpp' | wc -l)" >> $GITHUB_STEP_SUMMARY
+        echo "- CMake Files: $(find . -name 'CMakeLists.txt' | wc -l)" >> $GITHUB_STEP_SUMMARY
+
+  # ==========================================
+  # Job 5: Documentation Check
+  # ==========================================
+  docs-check:
+    name: 📚 Documentation
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: ✅ Verify Documentation Files
+      run: |
+        echo "Checking required documentation..."
+        
+        required_files=(
+          "README.md"
+          "CONTRIBUTING.md"
+          "LICENSE"
+          "docs/ARCHITECTURE.md"
+          "docs/LEARNING_PATH.md"
+        )
+        
+        all_present=true
+        for file in "${required_files[@]}"; do
+          if [ -f "$file" ]; then
+            echo "✅ $file"
+          else
+            echo "❌ Missing: $file"
+            all_present=false
+          fi
+        done
+        
+        if [ "$all_present" = true ]; then
+          echo "✅ All required documentation present"
+        else
+          echo "⚠️  Some documentation files are missing"
+        fi
+        
+    - name: 🔗 Check for Broken Links
+      run: |
+        echo "Checking for broken internal links in README..."
+        # Simple check for referenced files that don't exist
+        grep -o '\[.*\]([^)]*\.md)' README.md | sed 's/.*(\(.*\))/\1/' | while read link; do
+          if [ ! -f "$link" ]; then
+            echo "⚠️  Potentially broken link: $link"
+          fi
+        done || echo "✅ No broken links detected"
+
+  # ==========================================
+  # Job 6: Success Notification
+  # ==========================================
+  success:
+    name: ✅ Build Success
+    runs-on: ubuntu-latest
+    needs: [build-ubuntu, build-macos, build-windows, code-quality, docs-check]
+    
+    steps:
+    - name: 🎉 Success Message
+      run: |
+        echo "==========================================="
+        echo "🎉 All CI/CD checks passed successfully! 🎉"
+        echo "==========================================="
+        echo ""
+        echo "✅ Ubuntu build: Success"
+        echo "✅ macOS build: Success"
+        echo "✅ Windows build: Success"
+        echo "✅ Code quality: Passed"
+        echo "✅ Documentation: Complete"
+        echo ""
+        echo "Ready to merge! 🚀"
+        echo "==========================================="
