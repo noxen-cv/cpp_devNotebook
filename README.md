@@ -158,7 +158,7 @@ Follow the recommended order to maximize learning:
 - ✅ **Trees**: Binary trees, traversals
 - ✅ **Algorithm Patterns**: Two pointers, sliding window
 
-### Portfolio Projects
+### Simple College Projects
 - 🗓️ **Calendar System**: Date management and display
 - 📚 **Enrollment System**: Student record management
 - 🌐 **Web Browser Simulator**: History and navigation stack
