@@ -17,6 +17,7 @@ lib/
 *.hex
 /archive/
 /backup_20251105_094950/
+Makefile
 
 # ===================
 # Compiled Objects
