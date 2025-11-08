@@ -18,7 +18,7 @@ lib/
 /archive/
 /backup_20251105_094950/
 Makefile
-CMakelists.txt
+CMakelists
 
 # ===================
 # Compiled Objects
@@ -49,7 +49,7 @@ compile_commands.json
 CTestTestfile.cmake
 _deps/
 *.cmake
-!CMakeLists.txt
+CMakeLists.txt
 
 # ===================
 # Precompiled Headers
