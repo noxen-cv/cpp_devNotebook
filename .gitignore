@@ -15,10 +15,14 @@ lib/
 *.i*86
 *.x86_64
 *.hex
+
+# ===================
+# Backup Folders
+# ===================
 /archive/
 /backup_20251105_094950/
-Makefile
-CMakelists
+
+
 
 # ===================
 # Compiled Objects
@@ -50,6 +54,11 @@ CTestTestfile.cmake
 _deps/
 *.cmake
 CMakeLists.txt
+
+# ===================
+# MakeFile
+# ===================
+Makefile
 
 # ===================
 # Precompiled Headers

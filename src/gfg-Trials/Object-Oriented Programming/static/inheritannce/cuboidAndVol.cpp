@@ -38,3 +38,14 @@ class CuboidVol : public Cuboid {
     }
 };
 
+int main () {
+    CuboidVol cb;
+    int l, w,h;
+
+    cout << "Enter Length, Width and Height: ";
+    cin >> l >> w >> h;
+
+  
+    cb.read_input(l,w,h);
+    cb.display();
+}
