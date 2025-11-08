@@ -18,6 +18,7 @@ lib/
 /archive/
 /backup_20251105_094950/
 Makefile
+CMakelists.txt
 
 # ===================
 # Compiled Objects
