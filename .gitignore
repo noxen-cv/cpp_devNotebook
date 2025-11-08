@@ -54,6 +54,8 @@ CTestTestfile.cmake
 _deps/
 *.cmake
 CMakeLists.txt
+CMake
+
 
 # ===================
 # MakeFile
