@@ -1,3 +1,5 @@
+/* Activity in GFG Multi-level Inheritance */
+
 #include <iostream>
 
 using namespace std;
@@ -28,7 +30,7 @@ class Test : virtual public Student {
 };
 
 class Result : virtual public Test {
-    
+
     public:
         void Display() {
             int total_Marks = s1 + s2 + s3 + s4 +5;
