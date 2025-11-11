@@ -16,8 +16,8 @@ class A {
         A() { x = 10; }
 };
 
-class B : virtual public A { };
-class C : virtual public A { };
+class B : virtual public A { };     // Solves ambiguity of finding X from 
+class C : virtual public A { };     // either B or C by adding 'virtual' keyword
 
 class D : public B, public C {};
 
