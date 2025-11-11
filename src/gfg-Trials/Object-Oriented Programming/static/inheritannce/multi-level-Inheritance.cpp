@@ -13,7 +13,7 @@ class Student {
         virtual ~Student() {}
 };
 
-class Test : public Student {
+class Test : virtual public Student {
     protected:
         int s1, s2, s3, s4, s5;
     public:
@@ -27,7 +27,9 @@ class Test : public Student {
     virtual ~Test() {}
 };
 
-class Result : public Test {
+class Result : virtual public Test {
+    
+    public:
         void Display() {
             int total_Marks = s1 + s2 + s3 + s4 +5;
 
@@ -62,8 +64,14 @@ int main(){
         }
     }
 
+    // enter Data in Classes
+
+    studentData.set_rollnumber(rollNum);
+    studentData.set_Marks(inputMarks);
     
+    // Output
 
-
+    cout << "Last Output: ";
+    studentData.Display();
 
 }
