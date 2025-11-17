@@ -1,3 +1,9 @@
+/* Operators in C++ (e.g., +, -, *) are designed to work with primitive data types like int, float, and char. However, C++ allows these operators to be redefined for user-defined data types, such as classes. This process is known as operator overloading.
+
+For example, when dealing with a Complex number class, you can redefine the + operator to add two complex numbers just like you would add integers.
+
+*/
+
 #include <iostream>
 using namespace std;
 
